@@ -7,6 +7,8 @@
 
 .shell img {
     width: 100%;
+    z-index: 2;
+    transition: transform 0.75s ease-in-out;
 }
 
 .shell {
@@ -23,11 +25,11 @@
 }
 
 .ball {
-    z-index: 10;
+    z-index: 0;
     position: absolute;
     height: 30px;
     width: 30px;
-    top: 120px;
+    top: 110px;
     background-color: blueviolet;
     border-radius: 50%;
 }

@@ -53,6 +53,14 @@ section {
     border: solid 2px var(--color1);
 }
 
+div .shell {
+    margin-left: 20px;
+}
+
+button {
+    margin-top: 7px;
+}
+
 header {
     display: flex;
     justify-content: flex-end;
