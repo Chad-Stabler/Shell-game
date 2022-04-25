@@ -24,14 +24,25 @@ button1.addEventListener('click', () => {
     if (randomShell === 1) {
         shell1.classList.add('reveal');
         win++;
+        setTimeout(() => {
+            shell1.classList.remove('reveal');
+        }, '3000');
     } else if (randomShell === 2) {
         shell2.classList.add('reveal');
         loss++;
+        setTimeout(() => {
+            shell2.classList.remove('reveal');
+        }, '3000');
     } else {
         shell3.classList.add('reveal');
         loss++;
+        setTimeout(() => {
+            shell3.classList.remove('reveal');
+        }, '3000');
     }
-    
+    wins.textContent = win;
+    losses.textContent = loss;
+    total.textContent = win + loss;
 }); 
   // get user input
   // use user input to update state 
