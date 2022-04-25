@@ -20,8 +20,16 @@
     position: relative;
 }
 
-.shell.reveal img {
+.shell.reveal #shell1-img {
+    transform: translateX(-120px);
+}
+
+.shell.reveal #shell2-img {
     transform: translateY(-60px);
+}
+
+.shell.reveal #shell3-img {
+    transform: translateX(120px);
 }
 
 .ball {
