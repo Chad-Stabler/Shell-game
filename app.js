@@ -13,7 +13,13 @@ const total = document.getElementById('total');
 // let state
 let win = 0;
 let loss = 0;
+let active = false;
 // set event listeners
+function getActiveStatus() {
+  if() {
+    return false;
+  } else return true;
+}
 function displayResults() {
     wins.textContent = win;
     losses.textContent = loss;
@@ -28,7 +34,10 @@ function reset() {
 
 button1.addEventListener('click', () => {
     reset();
-    
+
+    if(getActiveStatus() === true) {
+      reset();
+    } else {
     const randomShell = Math.ceil(Math.random() * 3);
 
     if (randomShell === 1) {
@@ -51,6 +60,7 @@ button1.addEventListener('click', () => {
         }, '1500');
     }
     displayResults();
+  }
 });
 
 button2.addEventListener('click', () => {
