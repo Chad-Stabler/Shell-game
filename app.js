@@ -14,6 +14,11 @@ const total = document.getElementById('total');
 let win = 0;
 let loss = 0;
 // set event listeners
+function displayResults() {
+    wins.textContent = win;
+    losses.textContent = loss;
+    total.textContent = win + loss;
+}
 button1.addEventListener('click', () => {
     shell1.classList.remove('reveal');
     shell2.classList.remove('reveal');
@@ -40,9 +45,7 @@ button1.addEventListener('click', () => {
             shell3.classList.remove('reveal');
         }, '1500');
     }
-    wins.textContent = win;
-    losses.textContent = loss;
-    total.textContent = win + loss;
+    displayResults();
 });
 
 button2.addEventListener('click', () => {
@@ -71,9 +74,8 @@ button2.addEventListener('click', () => {
             shell3.classList.remove('reveal');
         }, '1500');
     }
-    wins.textContent = win;
-    losses.textContent = loss;
-    total.textContent = win + loss;
+    
+    displayResults();
 });
 
 button3.addEventListener('click', () => {
@@ -102,9 +104,8 @@ button3.addEventListener('click', () => {
             shell3.classList.remove('reveal');
         }, '1500');
     }
-    wins.textContent = win;
-    losses.textContent = loss;
-    total.textContent = win + loss;
+    
+    displayResults();
 });
   // get user input
   // use user input to update state 
