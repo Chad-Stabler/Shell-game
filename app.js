@@ -19,11 +19,16 @@ function displayResults() {
     losses.textContent = loss;
     total.textContent = win + loss;
 }
-button1.addEventListener('click', () => {
+
+function reset() {
     shell1.classList.remove('reveal');
     shell2.classList.remove('reveal');
     shell3.classList.remove('reveal');
+}
 
+button1.addEventListener('click', () => {
+    reset();
+    
     const randomShell = Math.ceil(Math.random() * 3);
 
     if (randomShell === 1) {
@@ -49,9 +54,7 @@ button1.addEventListener('click', () => {
 });
 
 button2.addEventListener('click', () => {
-    shell1.classList.remove('reveal');
-    shell2.classList.remove('reveal');
-    shell3.classList.remove('reveal');
+    reset();
 
     const randomShell = Math.ceil(Math.random() * 3);
 
@@ -79,9 +82,7 @@ button2.addEventListener('click', () => {
 });
 
 button3.addEventListener('click', () => {
-    shell1.classList.remove('reveal');
-    shell2.classList.remove('reveal');
-    shell3.classList.remove('reveal');
+    reset();
 
     const randomShell = Math.ceil(Math.random() * 3);
 
