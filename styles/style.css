@@ -57,6 +57,10 @@ div .shell {
     margin-left: 20px;
 }
 
+#error {
+    color: red;
+}
+
 button {
     margin-top: 7px;
 }

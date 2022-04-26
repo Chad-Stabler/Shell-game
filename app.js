@@ -10,16 +10,13 @@ const shell3 = document.getElementById('shell3');
 const wins = document.getElementById('win');
 const losses = document.getElementById('loss');
 const total = document.getElementById('total');
+
+const errorMsg = document.getElementById('error');
 // let state
 let win = 0;
 let loss = 0;
 let active = false;
 // set event listeners
-function getActiveStatus() {
-  if() {
-    return false;
-  } else return true;
-}
 function displayResults() {
     wins.textContent = win;
     losses.textContent = loss;
@@ -27,96 +24,111 @@ function displayResults() {
 }
 
 function reset() {
+    errorMsg.textContent = '';
     shell1.classList.remove('reveal');
     shell2.classList.remove('reveal');
     shell3.classList.remove('reveal');
 }
 
 button1.addEventListener('click', () => {
-    reset();
-
-    if(getActiveStatus() === true) {
-      reset();
+    
+    if (active) {
+        errorMsg.textContent = 'Too fast, please wait a moment before guessing again';
+        return;
     } else {
-    const randomShell = Math.ceil(Math.random() * 3);
+        reset();
+        active = true;
+        const randomShell = Math.ceil(Math.random() * 3);
 
-    if (randomShell === 1) {
-        shell1.classList.add('reveal');
-        win++;
-        setTimeout(() => {
-            shell1.classList.remove('reveal');
-        }, '1500');
-    } else if (randomShell === 2) {
-        shell2.classList.add('reveal');
-        loss++;
-        setTimeout(() => {
-            shell2.classList.remove('reveal');
-        }, '1500');
-    } else {
-        shell3.classList.add('reveal');
-        loss++;
-        setTimeout(() => {
-            shell3.classList.remove('reveal');
-        }, '1500');
+        if (randomShell === 1) {
+            shell1.classList.add('reveal');
+            win++;
+            setTimeout(() => {
+                shell1.classList.remove('reveal');
+                active = false;
+            }, '1500');
+        } else if (randomShell === 2) {
+            shell2.classList.add('reveal');
+            loss++;
+            setTimeout(() => {
+                shell2.classList.remove('reveal');
+                active = false;
+            }, '1500');
+        } else {
+            shell3.classList.add('reveal');
+            loss++;
+            setTimeout(() => {
+                shell3.classList.remove('reveal');
+                active = false;
+            }, '1500');
+        }
+        displayResults();
     }
-    displayResults();
-  }
 });
 
 button2.addEventListener('click', () => {
-    reset();
-
-    const randomShell = Math.ceil(Math.random() * 3);
-
-    if (randomShell === 1) {
-        shell1.classList.add('reveal');
-        loss++;
-        setTimeout(() => {
-            shell1.classList.remove('reveal');
-        }, '1500');
-    } else if (randomShell === 2) {
-        shell2.classList.add('reveal');
-        win++;
-        setTimeout(() => {
-            shell2.classList.remove('reveal');
-        }, '1500');
-    } else {
-        shell3.classList.add('reveal');
-        loss++;
-        setTimeout(() => {
-            shell3.classList.remove('reveal');
-        }, '1500');
-    }
     
-    displayResults();
+    if (active) {
+        errorMsg.textContent = 'Too fast, please wait a moment before guessing again';
+        return;
+    } else {
+        reset();
+        const randomShell = Math.ceil(Math.random() * 3);
+
+        if (randomShell === 1) {
+            shell1.classList.add('reveal');
+            loss++;
+            setTimeout(() => {
+                shell1.classList.remove('reveal');
+            }, '1500');
+        } else if (randomShell === 2) {
+            shell2.classList.add('reveal');
+            win++;
+            setTimeout(() => {
+                shell2.classList.remove('reveal');
+            }, '1500');
+        } else {
+            shell3.classList.add('reveal');
+            loss++;
+            setTimeout(() => {
+                shell3.classList.remove('reveal');
+            }, '1500');
+        }
+    
+        displayResults();
+    }
 });
 
 button3.addEventListener('click', () => {
-    reset();
-
-    const randomShell = Math.ceil(Math.random() * 3);
-
-    if (randomShell === 1) {
-        shell1.classList.add('reveal');
-        loss++;
-        setTimeout(() => {
-            shell1.classList.remove('reveal');
-        }, '1500');
-    } else if (randomShell === 2) {
-        shell2.classList.add('reveal');
-        loss++;
-        setTimeout(() => {
-            shell2.classList.remove('reveal');
-        }, '1500');
+    if (active) {
+        errorMsg.textContent = 'Too fast, please wait a moment before guessing again';
+        return;
     } else {
-        shell3.classList.add('reveal');
-        win++;
-        setTimeout(() => {
-            shell3.classList.remove('reveal');
-        }, '1500');
-    }
+        reset();
+        const randomShell = Math.ceil(Math.random() * 3);
+
+        if (randomShell === 1) {
+            shell1.classList.add('reveal');
+            loss++;
+            setTimeout(() => {
+                shell1.classList.remove('reveal');
+            }, '1500');
+        } else if (randomShell === 2) {
+            shell2.classList.add('reveal');
+            loss++;
+            setTimeout(() => {
+                shell2.classList.remove('reveal');
+            }, '1500');
+        } else {
+            shell3.classList.add('reveal');
+            win++;
+            setTimeout(() => {
+                shell3.classList.remove('reveal');
+            }, '1500');
+        }
     
-    displayResults();
+        displayResults();
+    }
 });
   // get user input
   // use user input to update state 
