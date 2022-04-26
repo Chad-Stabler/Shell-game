@@ -34,6 +34,9 @@ button1.addEventListener('click', () => {
     
     if (active) {
         errorMsg.textContent = 'Too fast, please wait a moment before guessing again';
+        setTimeout(() => {
+            reset();
+        }, '1250');
         return;
     } else {
         reset();
@@ -70,6 +73,9 @@ button2.addEventListener('click', () => {
     
     if (active) {
         errorMsg.textContent = 'Too fast, please wait a moment before guessing again';
+        setTimeout(() => {
+            reset();
+        }, '1250');
         return;
     } else {
         reset();
@@ -102,6 +108,9 @@ button2.addEventListener('click', () => {
 button3.addEventListener('click', () => {
     if (active) {
         errorMsg.textContent = 'Too fast, please wait a moment before guessing again';
+        setTimeout(() => {
+            reset();
+        }, '1250');
         return;
     } else {
         reset();
