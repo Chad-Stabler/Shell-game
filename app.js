@@ -30,6 +30,26 @@ function reset() {
     shell3.classList.remove('reveal');
 }
 
+function toggleBounce(i) {
+    active = true;
+    document.getElementById(`shell${i}`).classList.add('reveal');                
+    setTimeout(() => {
+        document.getElementById(`shell${i}`).classList.remove('reveal');
+    }, '300');
+    setTimeout(() => {
+        document.getElementById(`shell${i}`).classList.add('reveal');
+    }, '600');
+    setTimeout(() => {
+        document.getElementById(`shell${i}`).classList.remove('reveal');
+    }, '900');
+    setTimeout(() => {
+        document.getElementById(`shell${i}`).classList.add('reveal');
+    }, '1200');
+    setTimeout(() => {
+        document.getElementById(`shell${i}`).classList.remove('reveal');
+    }, '1500');
+}
+
 button1.addEventListener('click', () => {
     
     if (active) {
@@ -42,28 +62,24 @@ button1.addEventListener('click', () => {
         reset();
         active = true;
         const randomShell = Math.ceil(Math.random() * 3);
-
         if (randomShell === 1) {
-            shell1.classList.add('reveal');
             win++;
+            toggleBounce(1);
             setTimeout(() => {
-                shell1.classList.remove('reveal');
                 active = false;
-            }, '1500');
+            }, '1800');
         } else if (randomShell === 2) {
-            shell2.classList.add('reveal');
             loss++;
+            toggleBounce(2);
             setTimeout(() => {
-                shell2.classList.remove('reveal');
                 active = false;
-            }, '1500');
+            }, '1800');
         } else {
-            shell3.classList.add('reveal');
             loss++;
+            toggleBounce(3);
             setTimeout(() => {
-                shell3.classList.remove('reveal');
                 active = false;
-            }, '1500');
+            }, '1800');
         }
         displayResults();
     }
@@ -79,26 +95,26 @@ button2.addEventListener('click', () => {
         return;
     } else {
         reset();
+        active = true;
         const randomShell = Math.ceil(Math.random() * 3);
-
         if (randomShell === 1) {
-            shell1.classList.add('reveal');
             loss++;
+            toggleBounce(1);
             setTimeout(() => {
-                shell1.classList.remove('reveal');
-            }, '1500');
+                active = false;
+            }, '1800');
         } else if (randomShell === 2) {
-            shell2.classList.add('reveal');
             win++;
+            toggleBounce(2);
             setTimeout(() => {
-                shell2.classList.remove('reveal');
-            }, '1500');
+                active = false;
+            }, '1800');
         } else {
-            shell3.classList.add('reveal');
-            loss++;
+            win++;
+            toggleBounce(3);
             setTimeout(() => {
-                shell3.classList.remove('reveal');
-            }, '1500');
+                active = false;
+            }, '1800');
         }
     
         displayResults();
@@ -108,32 +124,29 @@ button2.addEventListener('click', () => {
 button3.addEventListener('click', () => {
     if (active) {
         errorMsg.textContent = 'Too fast, please wait a moment before guessing again';
-        setTimeout(() => {
-            reset();
-        }, '1250');
         return;
     } else {
         reset();
+        active = true;
         const randomShell = Math.ceil(Math.random() * 3);
-
         if (randomShell === 1) {
-            shell1.classList.add('reveal');
             loss++;
+            toggleBounce(1);
             setTimeout(() => {
-                shell1.classList.remove('reveal');
-            }, '1500');
+                active = false;
+            }, '1800');
         } else if (randomShell === 2) {
-            shell2.classList.add('reveal');
             loss++;
+            toggleBounce(2);
             setTimeout(() => {
-                shell2.classList.remove('reveal');
-            }, '1500');
+                active = false;
+            }, '1800');
         } else {
-            shell3.classList.add('reveal');
             win++;
+            toggleBounce(3);
             setTimeout(() => {
-                shell3.classList.remove('reveal');
-            }, '1500');
+                active = false;
+            }, '1800');
         }
     
         displayResults();
