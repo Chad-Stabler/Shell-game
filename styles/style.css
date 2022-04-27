@@ -53,6 +53,18 @@ section {
     border: solid 2px var(--color1);
 }
 
+div .shell {
+    margin-left: 20px;
+}
+
+#error {
+    color: red;
+}
+
+button {
+    margin-top: 7px;
+}
+
 header {
     display: flex;
     justify-content: flex-end;
@@ -61,8 +73,7 @@ header {
     box-shadow: var(--shadow);
 }
 
-
-h2 {
+h1 {
     font-size: 1.8rem;
     font-weight: bold;
 }

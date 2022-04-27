@@ -1,1 +1,43 @@
 /* add home page styles here */
+.shells {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+}
+
+.shell img {
+    width: 100%;
+    z-index: 2;
+    transition: transform 0.25s ease-in-out;
+}
+
+.shell {
+    width: 175px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.shell.reveal #shell1-img {
+    transform: translateX(-120px);
+}
+
+.shell.reveal #shell2-img {
+    transform: translateY(-60px);
+}
+
+.shell.reveal #shell3-img {
+    transform: translateX(120px);
+}
+
+.ball {
+    z-index: 0;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 110px;
+    background-color: blueviolet;
+    border-radius: 50%;
+}
